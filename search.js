@@ -1,18 +1,20 @@
 async function searchBooks() {
-  console.log("검색한다2");
+  console.log("검색한다3");
   const query = document.getElementById("query").value;
   const apiKey = "ttbwsnah05200918001";
-  const url = `https://www.aladin.co.kr/ttb/api/ItemSearch.aspx?ttbkey=${apiKey}
-  &Query=${encodeURIComponent(query)}&QueryType=Title&MaxResults=10
-  &start=1&SearchTarget=Book&output=JS&Version=20131101`;
+  const callbackName = `jsonpCallback_${Date.now()}`;
+  const url = `https://www.aladin.co.kr/ttb/api/ItemSearch.aspx?ttbkey=${apiKey}&Query=${encodeURIComponent(
+    query
+  )}&QueryType=Title&MaxResults=10&start=1&SearchTarget=Book&output=JS&Version=20131101&callback=${callbackName}`;
 
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
+  window[callbackName] = function (data) {
     displayResults(data.item);
-  } catch (error) {
-    console.error("Error fetching data:", error);
-  }
+    delete window[callbackName];
+  };
+
+  const script = document.createElement("script");
+  script.src = url;
+  document.body.appendChild(script);
 }
 
 function displayResults(books) {
