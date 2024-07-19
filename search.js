@@ -3,7 +3,7 @@ let bookInfo = [];
 let receivedISBN = "9788934942467";
 
 function searchBooks() {
-  const url = `http://www.aladin.co.kr/ttb/api/ItemLookUp.aspx?ttbkey=${API_KEY}&itemIdType=ISBN&ItemId=${receivedISBN}&Cover=Big&output=js&Version=20131101&OptResult=ebookList,usedList,reviewList&callback=displayResults`;
+  const url = `https://www.aladin.co.kr/ttb/api/ItemLookUp.aspx?ttbkey=${API_KEY}&itemIdType=ISBN&ItemId=${receivedISBN}&Cover=Big&output=js&Version=20131101&OptResult=ebookList,usedList,reviewList&callback=displayResults`;
 
   $.ajax({
     url: url,
