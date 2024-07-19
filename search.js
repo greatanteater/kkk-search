@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  console.log("캬캬캬");
+  console.log("캬캬캬2");
   $("#searchButton").on("click", function () {
     const query = $("#query").val();
     const apiKey = "ttbwsnah05200918001";
