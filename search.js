@@ -8,6 +8,7 @@ async function searchBooks() {
   )}&QueryType=Title&MaxResults=10&start=1&SearchTarget=Book&output=JS&Version=20131101&callback=${callbackName}`;
 
   window[callbackName] = function (data) {
+    console.log("뭐냐");
     displayResults(data.item);
     delete window[callbackName];
   };
