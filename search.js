@@ -1,5 +1,5 @@
 function searchBooks() {
-  console.log("검색 중입니다...3");
+  console.log("검색 중입니다...77777");
 
   const query = document.getElementById("query").value;
   const apiKey = "ttbwsnah05200918001";
@@ -18,6 +18,16 @@ function searchBooks() {
     document.body.removeChild(script); // script 태그 제거
   };
   document.body.appendChild(script);
+}
+
+function jsonpCallback(data) {
+  console.log("응답 받음");
+  displayResults(data.item);
+  // script 태그 제거
+  const script = document.querySelector(`script[src*="ItemSearch"]`);
+  if (script) {
+    document.body.removeChild(script);
+  }
 }
 
 function displayResults(books) {
