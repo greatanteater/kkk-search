@@ -1,5 +1,5 @@
-async function searchBooks() {
-  console.log("검색한다4");
+function searchBooks() {
+  console.log("검색한다5");
   const query = document.getElementById("query").value;
   const apiKey = "ttbwsnah05200918001";
   const callbackName = `jsonpCallback_${Date.now()}`;
@@ -7,14 +7,23 @@ async function searchBooks() {
     query
   )}&QueryType=Title&MaxResults=10&start=1&SearchTarget=Book&output=JS&Version=20131101&callback=${callbackName}`;
 
+  // JSONP 콜백 함수 정의
   window[callbackName] = function (data) {
     console.log("뭐냐");
     displayResults(data.item);
+    // 콜백 함수 제거
     delete window[callbackName];
+    document.body.removeChild(script); // script 태그 제거
   };
 
+  // script 태그 생성 및 삽입
   const script = document.createElement("script");
   script.src = url;
+  script.onerror = function () {
+    console.error("Script load error");
+    delete window[callbackName];
+    document.body.removeChild(script); // script 태그 제거
+  };
   document.body.appendChild(script);
 }
 
