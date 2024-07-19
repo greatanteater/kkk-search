@@ -1,5 +1,5 @@
 async function searchBooks() {
-  console.log("검색한다3");
+  console.log("검색한다4");
   const query = document.getElementById("query").value;
   const apiKey = "ttbwsnah05200918001";
   const callbackName = `jsonpCallback_${Date.now()}`;
