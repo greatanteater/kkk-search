@@ -1,8 +1,8 @@
 async function searchBooks() {
-  console.log("검색한다");
+  console.log("검색한다2");
   const query = document.getElementById("query").value;
   const apiKey = "ttbwsnah05200918001";
-  const url = `http://www.aladin.co.kr/ttb/api/ItemSearch.aspx?ttbkey=${apiKey}
+  const url = `https://www.aladin.co.kr/ttb/api/ItemSearch.aspx?ttbkey=${apiKey}
   &Query=${encodeURIComponent(query)}&QueryType=Title&MaxResults=10
   &start=1&SearchTarget=Book&output=JS&Version=20131101`;
 
