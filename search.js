@@ -1,11 +1,13 @@
 function searchBooks() {
-  console.log("검색한다5");
+  console.log("검색한다6");
   const query = document.getElementById("query").value;
   const apiKey = "ttbwsnah05200918001";
   const callbackName = `jsonpCallback_${Date.now()}`;
   const url = `https://www.aladin.co.kr/ttb/api/ItemSearch.aspx?ttbkey=${apiKey}&Query=${encodeURIComponent(
     query
   )}&QueryType=Title&MaxResults=10&start=1&SearchTarget=Book&output=JS&Version=20131101&callback=${callbackName}`;
+
+  console.log(`Request URL: ${url}`); // URL 확인용 로그
 
   // JSONP 콜백 함수 정의
   window[callbackName] = function (data) {
