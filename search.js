@@ -1,5 +1,6 @@
 function searchBooks() {
-  console.log("검색한다6");
+  console.log("검색 중입니다...");
+
   const query = document.getElementById("query").value;
   const apiKey = "ttbwsnah05200918001";
   const callbackName = `jsonpCallback_${Date.now()}`;
@@ -11,7 +12,7 @@ function searchBooks() {
 
   // JSONP 콜백 함수 정의
   window[callbackName] = function (data) {
-    console.log("뭐냐");
+    console.log("응답 받음");
     displayResults(data.item);
     // 콜백 함수 제거
     delete window[callbackName];
