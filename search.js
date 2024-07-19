@@ -1,18 +1,21 @@
 const API_KEY = `ttbwsnah05200918001`;
 let bookInfo = [];
 let receivedISBN = "9788934942467";
+let aaaaa = `http://www.aladin.co.kr/ttb/api/ItemSearch.aspx?ttbkey=${API_KEY}&Query=aladdin&QueryType=Title&MaxResults=10&start=1&SearchTarget=Book&output=xml&Version=20131101&callback=displayResults`;
 
 function searchBooks() {
   const url = `https://www.aladin.co.kr/ttb/api/ItemLookUp.aspx?ttbkey=${API_KEY}&itemIdType=ISBN&ItemId=${receivedISBN}&Cover=Big&output=js&Version=20131101&OptResult=ebookList,usedList,reviewList&callback=displayResults`;
+  const url1 = `https://www.aladin.co.kr/ttb/api/ItemSearch.aspx?ttbkey=ttbwsnah05200918001&Query=bonobono&QueryType=Title&MaxResults=10&start=1&SearchTarget=Book&output=js&Version=20131101&OptResult=ebookList,usedList,fileFormatList&callback=displayResults`;
 
   $.ajax({
-    url: url,
+    url: url1,
     jsonp: "displayResults",
     dataType: "jsonp",
   });
 }
 
 function displayResults(data) {
+  console.log("뭐하냐");
   console.log(data);
   const books = data.item;
   const resultsDiv = document.getElementById("results");
