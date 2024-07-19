@@ -1,6 +1,6 @@
 function searchBooks() {
   const query = $("#query").val();
-  const apiKey = "ttbj01022761248001";
+  const apiKey = "ttbwsnah05200918001";
   const url = `https://www.aladin.co.kr/ttb/api/ItemSearch.aspx?ttbkey=${apiKey}
     &Query=${encodeURIComponent(query)}&QueryType=Title&MaxResults=10
     &start=1&SearchTarget=Book&output=JS&Version=20131101`;
